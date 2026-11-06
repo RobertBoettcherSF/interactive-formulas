@@ -1,8 +1,9 @@
-import {t,formatNumber as format,getLanguage} from './i18n.js?v=10';
-import {chemistryCards,chemText,groupText,labelText} from './chemistry.js?v=10';
-import {mathematicsCards,mathText,groupText as mathGroupText,labelText as mathLabelText} from './mathematics.js?v=10';
-import {physicsCards,physText,groupText as physGroupText,labelText as physLabelText} from './physics.js?v=10';
-import {computerScienceCards,csText,groupText as csGroupText,labelText as csLabelText} from './computer-science.js?v=10';
+import {t,formatNumber as format,getLanguage} from './i18n.js?v=11';
+import {chemistryCards,chemText,groupText,labelText} from './chemistry.js?v=11';
+import {mathematicsCards,mathText,groupText as mathGroupText,labelText as mathLabelText} from './mathematics.js?v=11';
+import {physicsCards,physText,groupText as physGroupText,labelText as physLabelText} from './physics.js?v=11';
+import {computerScienceCards,csText,groupText as csGroupText,labelText as csLabelText} from './computer-science.js?v=11';
+import {play} from './sounds.js?v=11';
 export const formulas={
  linear:{fields:[{key:'m',value:2},{key:'x',value:3},{key:'b',value:1}],calculate:({m,x,b})=>m*x+b,equation:()=> 'y = mx + b',working:v=>`y = (${format(v.m)} × ${format(v.x)}) + (${format(v.b)})`},
  percentage:{fields:[{key:'whole',value:80},{key:'p',value:15}],calculate:({whole,p})=>whole*p/100,equation:()=>`${t('part')} = ${t('whole')} × p / 100`,working:v=>`${t('part')} = ${format(v.whole)} × ${format(v.p)} / 100`}
@@ -49,7 +50,8 @@ class FormulaCard extends HTMLElement{
    const steps=rich?config.substitution.replace(/\{(\w+)\}/g,(_,key)=>`(${format(values[key])})`):config.working(values);
    working.textContent=`${steps} = ${format(result)}${config.unit?' '+config.unit:''}`;
   };
-  inputs.forEach(input=>input.addEventListener('input',update));this.querySelector('.reset').onclick=()=>{inputs.forEach((input,i)=>input.value=config.fields[i].value);update();};update();
+  const updateFromUser=()=>{play('input');update();if(this.querySelector('.answer')?.textContent)play('result');};
+  inputs.forEach(input=>input.addEventListener('input',updateFromUser));this.querySelector('.reset').onclick=()=>{play('reset');inputs.forEach((input,i)=>input.value=config.fields[i].value);update();};update();
  }
 }
 customElements.define('formula-card',FormulaCard);

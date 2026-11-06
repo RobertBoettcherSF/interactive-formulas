@@ -1,10 +1,11 @@
-import {t,setLanguage,translatePage} from './i18n.js?v=10';
-import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=10';
-import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=10';
-import {physicsCards,physText,groupText as physGroupText,groupNames as physGroupNames} from './physics.js?v=10';
-import {computerScienceCards,csText,groupText as csGroupText,groupNames as csGroupNames} from './computer-science.js?v=10';
-import './formula-card.js?v=10';
-import './rain.js?v=10';
+import {t,setLanguage,translatePage} from './i18n.js?v=11';
+import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=11';
+import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=11';
+import {physicsCards,physText,groupText as physGroupText,groupNames as physGroupNames} from './physics.js?v=11';
+import {computerScienceCards,csText,groupText as csGroupText,groupNames as csGroupNames} from './computer-science.js?v=11';
+import './formula-card.js?v=11';
+import './rain.js?v=11';
+import {play} from './sounds.js?v=11';
 const topics=['chemistry','mathematics','physics','computer-science'];
 const validTopic=value=>topics.includes(value);
 const queryTopic=()=>new URL(location.href).searchParams.get('topic');
@@ -46,7 +47,7 @@ function renderTopic(){
 }
 function selectTopic(value){if(!validTopic(value))return;topic=value;const url=new URL(location.href);url.searchParams.set('topic',topic);url.hash='';history.pushState({},'',url);renderTopic();}
 document.querySelectorAll('[data-topic]').forEach(tile=>tile.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();selectTopic(tile.dataset.topic);}));
-document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.language)));
+document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{play('language');setLanguage(button.dataset.language);}));
 window.addEventListener('languagechange',()=>{
  titleAndIntro();
  const spec=collections[topic];
