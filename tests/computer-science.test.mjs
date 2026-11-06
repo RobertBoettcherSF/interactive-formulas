@@ -17,6 +17,12 @@ const floorLog2=u=>{let n=0,x=u;while(x>1){x=Math.floor(x/2);n++;}return n;};
 const ceilLog2=u=>{if(u<=1)return 0;let p=1,k=0;while(p<u){p*=2;k++;}return k;};
 const mod=n=>{const r=n%26;return r<0?r+26:r;};
 const gcd=(a,b)=>{while(b){const t=a%b;a=b;b=t;}return a;};
+const links=v=>[[1,2,v.e12],[1,3,v.e13],[2,4,v.e24],[3,4,v.e34]];
+const nextTo=(v,node)=>links(v).flatMap(([a,b,on])=>on===1?(a===node?[b]:b===node?[a]:[]):[]).sort((x,y)=>x-y);
+const bfs=v=>{const seen=new Set([1]),queue=[1],order=[];while(queue.length){const u=queue.shift();order.push(u);for(const n of nextTo(v,u)) if(!seen.has(n)){seen.add(n);queue.push(n);}}return order;};
+const dfs=v=>{const seen=new Set(),order=[];const walk=u=>{seen.add(u);order.push(u);for(const n of nextTo(v,u)) if(!seen.has(n)) walk(n);};walk(1);return order;};
+const shortest=v=>{const dist=[Infinity,0,Infinity,Infinity,Infinity],used=[false,false,false,false,false];for(let step=0;step<4;step++){let u=0,best=Infinity;for(let node=1;node<=4;node++) if(!used[node]&&dist[node]<best){best=dist[node];u=node;}if(!u)break;used[u]=true;for(const [a,b,w] of [[1,2,v.w12],[1,3,v.w13],[2,4,v.w24],[3,4,v.w34]]){if(!(w>0))continue;const other=a===u?b:b===u?a:0;if(other&&dist[u]+w<dist[other])dist[other]=dist[u]+w;}}return dist[4];};
+const huffman=freqs=>{const depth=freqs.map(()=>0);let items=freqs.map((f,i)=>({f,order:i,leaves:[i]})),stamp=freqs.length;while(items.length>1){items.sort((a,b)=>a.f-b.f||a.order-b.order);const x=items.shift(),y=items.shift();for(const leaf of x.leaves) depth[leaf]++;for(const leaf of y.leaves) depth[leaf]++;items.push({f:x.f+y.f,order:stamp++,leaves:x.leaves.concat(y.leaves)});}return freqs.reduce((sum,f,i)=>sum+f*depth[i],0);};
 const spec={
 'cs-bit-weight':v=>2**v.p,
 'cs-byte':v=>128*v.b7+64*v.b6+32*v.b5+16*v.b4+8*v.b3+4*v.b2+2*v.b1+v.b0,
@@ -39,6 +45,17 @@ const spec={
 'cs-caesar-back':v=>mod(v.c-v.k),
 'cs-vigenere':v=>mod(v.p+v.k),
 'cs-shift-keys':v=>v.a,
+'cs-check-digit':v=>(10-((v.d1+3*v.d2+v.d3+3*v.d4)%10))%10,
+'cs-check-code':v=>(v.d1+3*v.d2+v.d3+3*v.d4+v.c)%10,
+'cs-hamming':v=>{let d=0;for(let i=0;i<v.la;i++) if(Math.floor(v.a/2**i)%2!==Math.floor(v.b/2**i)%2) d++;return d;},
+'cs-modpow':v=>{let a=v.a%v.n,r=1,b=v.b;while(b>0){if(b%2===1)r=r*a%v.n;b=Math.floor(b/2);if(b>0)a=a*a%v.n;}return r;},
+'cs-bfs-count':v=>bfs(v).length,
+'cs-bfs-order':v=>bfs(v)[v.k-1],
+'cs-dfs-count':v=>dfs(v).length,
+'cs-dfs-order':v=>dfs(v)[v.k-1],
+'cs-dijkstra':v=>shortest(v),
+'cs-relax':v=>Math.min(v.dv,v.du+v.w),
+'cs-huffman':v=>huffman([v.f1,v.f2,v.f3,v.f4]),
 'cs-matrix':v=>v.n*v.n,
 'cs-directed':v=>v.n*(v.n-1),
 'cs-undirected':v=>v.n*(v.n-1)/2,
@@ -62,12 +79,12 @@ const spec={
 'cs-brute':v=>v.a**v.l
 };
 test('computer science collection shape',()=>{
- assert.equal(computerScienceCards.length,42);
- assert.equal(Object.keys(groupNames).length,6);
+ assert.equal(computerScienceCards.length,53);
+ assert.equal(Object.keys(groupNames).length,7);
  assert.deepEqual(Object.keys(spec).sort(),computerScienceCards.map(card=>card.id).sort());
  const tally={};
  for(const card of computerScienceCards) tally[card.group]=(tally[card.group]||0)+1;
- assert.deepEqual(tally,{encoding:17,ciphers:4,graphs:4,recursion:2,trees:8,complexity:7});
+ assert.deepEqual(tally,{encoding:17,ciphers:4,codes:4,graphs:10,recursion:2,trees:9,complexity:7});
  for(const card of computerScienceCards){
   assert.equal(card.id.startsWith('cs-'),true);
   for(const lang of ['en','de','es','fr']){assert.ok(card.title[lang]);assert.ok(card.note[lang]);}
@@ -94,7 +111,15 @@ test('computer science recalculation',()=>{
   'cs-undirected':{n:5,expected:10},
   'cs-search-balanced':{n:6,expected:3},
   'cs-brute':{a:10,l:4,expected:10000},
-  'cs-wrap':{n:8,a:200,b:100,expected:44}
+  'cs-wrap':{n:8,a:200,b:100,expected:44},
+  'cs-check-digit':{d1:1,d2:2,d3:3,d4:4,expected:8},
+  'cs-modpow':{a:2,b:10,n:17,expected:4},
+  'cs-hamming':{a:15,la:4,b:0,lb:4,expected:4},
+  'cs-bfs-count':{e12:0,e13:0,e24:1,e34:1,expected:1},
+  'cs-dfs-order':{e12:0,e13:1,e24:1,e34:1,k:4,expected:2},
+  'cs-dijkstra':{w12:1,w13:4,w24:10,w34:1,expected:5},
+  'cs-relax':{du:3,w:4,dv:6,expected:6},
+  'cs-huffman':{f1:1,f2:1,f3:1,f4:1,expected:8}
  };
  for(const [id,item] of Object.entries(cases)){
   const {expected,...input}=item;
@@ -125,4 +150,13 @@ test('computer science field boundaries',()=>{
  expectError('cs-gcd',{a:2**53},'exact');
  expectError('cs-bubblesort',{n:1000001},'scale');
  expectError('cs-logarithmic',{n:0},'integer');
+ expectError('cs-check-digit',{d1:10},'digit');
+ expectError('cs-hamming',{la:3},'length');
+ expectError('cs-hamming',{a:16},'fit');
+ expectError('cs-modpow',{n:1},'modulus');
+ expectError('cs-modpow',{a:0,b:0},'power');
+ expectError('cs-bfs-count',{e12:2},'bit');
+ expectError('cs-bfs-order',{k:5},'step');
+ expectError('cs-dijkstra',{w12:0,w13:0,w24:0,w34:0},'reach');
+ expectError('cs-huffman',{f1:0},'integer');
 });

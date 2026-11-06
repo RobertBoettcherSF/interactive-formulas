@@ -2,9 +2,9 @@
 
 A learning lab for understanding relationships by changing values and following calculations.
 
-**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=8)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=8)**
+**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=9)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=9)**
 
-## Version 0.8
+## Version 0.9
 
 1. The project is titled **Syllabus-Repo** on the introduction, gallery and browser tabs. A subdued Lorenz animation remains in the background. Click or tap anywhere to enter.
 2. Chemistry keeps **36 interactive cards in eight topic groups**.
@@ -13,14 +13,14 @@ A learning lab for understanding relationships by changing values and following 
 5. Every Mathematics card shows a formula, what the symbols mean, sample inputs, an initial result, substituted steps, validation and Reset. Expand a topic or use the group links to explore it.
 6. UK English, German, Spanish and French cover card titles, explanations, labels and gallery controls. Results and substituted numbers follow the selected locale. Language changes preserve entered values.
 7. Physics now includes **91 interactive cards in ten topic groups**: motion; forces; mechanical energy and momentum; electric current and electrical energy; optics; heat and thermal energy; electromagnetism and induction; oscillations and waves; static electric and magnetic fields; nuclear and quantum relations. Optics adds Snell’s law and the thin-lens equation. Heat adds the ideal-gas law. Forces adds Kepler’s third law. Nuclear and quantum relations add the infinite square well.
-8. Computer Science now includes **42 interactive cards in six topic groups**: number systems and encoding; symmetric ciphers; graphs; recursion; binary trees; algorithm complexity.
+8. Computer Science now includes **53 interactive cards in seven topic groups**: number systems and encoding; symmetric ciphers; codes and modular arithmetic; graphs; recursion; binary trees; algorithm complexity. Codes add an ISBN-style check, Hamming distance and a modular power. Graphs add breadth-first and depth-first counts and visit orders on four nodes, plus a Dijkstra distance and one relaxation. Binary trees add a Huffman encoded length.
 9. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
 
-**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=8)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=8)** · **[Open Physics](https://robertboettchersf.github.io/interactive-formulas/physics.html?v=8)** · **[Open Computer Science](https://robertboettchersf.github.io/interactive-formulas/computer-science.html?v=8)**
+**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=9)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=9)** · **[Open Physics](https://robertboettchersf.github.io/interactive-formulas/physics.html?v=9)** · **[Open Computer Science](https://robertboettchersf.github.io/interactive-formulas/computer-science.html?v=9)**
 
 ### Computer Science scope
 
-A binary place with index p is worth 2 to the power p, and one byte is eight bits. Four hexadecimal digits use places 4096, 256, 16 and 1; one such digit is four bits. Two’s complement on n bits runs from −2 to the power n−1 up to one below that power. Unsigned addition keeps the remainder modulo 2 to the power n. A half adder and a full adder return the sum bit and the carry. Caesar and one Vigenère letter move a letter position modulo 26, with A numbered 0. An adjacency matrix of n vertices has n squared entries, and a row of ones and zeros sums to a degree. The greatest common divisor is the last non-zero remainder. Moving n disks in the Tower of Hanoi takes one less than 2 to the power n. Height counts edges from the root. Operation counts cover a linear, quadratic, logarithmic and exponential model, the adjacent comparisons of bubble sort, a balanced merge-sort level count, and a brute-force candidate count.
+A binary place with index p is worth 2 to the power p, and one byte is eight bits. Four hexadecimal digits use places 4096, 256, 16 and 1; one such digit is four bits. Two’s complement on n bits runs from −2 to the power n−1 up to one below that power. Unsigned addition keeps the remainder modulo 2 to the power n. A half adder and a full adder return the sum bit and the carry. Caesar and one Vigenère letter move a letter position modulo 26, with A numbered 0. An adjacency matrix of n vertices has n squared entries, and a row of ones and zeros sums to a degree. The greatest common divisor is the last non-zero remainder. Moving n disks in the Tower of Hanoi takes one less than 2 to the power n. Height counts edges from the root. Operation counts cover a linear, quadratic, logarithmic and exponential model, the adjacent comparisons of bubble sort, a balanced merge-sort level count, and a brute-force candidate count. An ISBN-style sum uses weights 1, 3, 1, 3 and a final weight of 1. Hamming distance compares equal-width binary writings. A modular power keeps the remainder of aᵇ modulo n. Breadth-first and depth-first search, and Dijkstra’s distance, use one four-node graph. Huffman length is frequency times code length.
 
 ### Physics scope
 
