@@ -2,18 +2,23 @@
 
 A learning lab for understanding relationships by changing values and following calculations.
 
-**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=3)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=3)**
+**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=4)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=4)**
 
-## Version 0.3
+## Version 0.4
 
 1. The project is titled **Syllabus-Repo** on the introduction, gallery and browser tabs. A subdued Lorenz animation remains in the background. Click or tap anywhere to enter.
-2. Chemistry now includes **36 interactive cards in eight topic groups**: amounts and particles; solutions and concentrations; gas volumes and reaction ratios; thermochemistry; rates and equilibrium; acid–base calculations; electrochemistry; optical measurements.
-3. Every Chemistry card shows a formula, labelled quantities and units, sample inputs, an initial result, substituted steps, model conditions, validation and Reset. Expand a topic or use the group links to explore it.
-4. UK English, German, Spanish and French cover card titles, explanations, labels and gallery controls. Results and substituted numbers follow the selected locale. Language changes preserve entered values.
-5. Physics retains only the two shared starter demonstrations. Mathematics and Computer Science remain preparation spaces; their full collections have not been added.
-6. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
+2. Chemistry keeps **36 interactive cards in eight topic groups**.
+3. Mathematics now includes **99 interactive cards in ten topic groups**: numbers, powers and percentages; area and volume; equations; functions; geometry and trigonometry; probability and data; calculus; vectors in space; sequences and series; complex numbers.
+4. Every Mathematics card shows a formula, what the symbols mean, sample inputs, an initial result, substituted steps, validation and Reset. Expand a topic or use the group links to explore it.
+5. UK English, German, Spanish and French cover card titles, explanations, labels and gallery controls. Results and substituted numbers follow the selected locale. Language changes preserve entered values.
+6. Physics retains only the two shared starter demonstrations. Computer Science remains a preparation space; its full collection has not been added.
+7. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
 
-**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=3)**
+**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=4)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=4)**
+
+### Mathematics scope
+
+A card is included only when the relation itself is stated. The collection does not add the quadratic formula, Pythagoras, the intercept theorem or right-triangle side ratios, because those equations are not part of the stated relations used here. Sine and cosine are the unit-circle values, and the sine model uses radians. Circle, pyramid, cone and sphere cards use the standard relations for those figures. A prism volume is base area times height, including an oblique prism. Percentage means a fraction with denominator 100.
 
 ### Scientific scope and conventions
 
