@@ -1,7 +1,8 @@
-import {t} from './i18n.js?v=11';
+import {t} from './i18n.js?v=12';
 const KEY='if.sound';
-export const SOUND_EVENTS=['input','result','language','reset'];
-const tones={input:[740,0.028],result:[988,0.045],language:[523,0.055],reset:[392,0.04]};
+export const SOUND_EVENTS=['input','result','language','reset','click'];
+export const GALLERY_CLICK_SELECTOR='[data-topic], [data-group-link], [data-expand], [data-collapse], .chemistry-group > summary';
+const tones={input:[740,0.028],result:[988,0.045],language:[523,0.055],reset:[392,0.04],click:[640,0.03]};
 const listeners=new Set();
 let muted=false;
 try{muted=localStorage.getItem(KEY)==='off';}catch{}
@@ -15,6 +16,11 @@ export function setMuted(value){
 }
 export function toggleMuted(){setMuted(!muted);return muted;}
 function emit(name){for(const fn of listeners)fn(name);}
+export function notifyGalleryClick(event){
+ const el=event.target?.closest?.(GALLERY_CLICK_SELECTOR);
+ if(!el)return false;
+ return play('click');
+}
 export function play(name){
  if(!SOUND_EVENTS.includes(name)||muted)return false;
  emit(name);

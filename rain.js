@@ -1,4 +1,4 @@
-import {t} from './i18n.js?v=11';
+import {t} from './i18n.js?v=12';
 // Each item is a complete akshara. Never index or split its code points.
 export const GLYPHS=['अ','आ','इ','ई','उ','ऊ','ऋ','ॐ','क','ख','ग','घ','च','छ','ज','झ','ट','ठ','ड','ढ','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ','श्र','कृ','प्र','स्व','धि','श्री'];
 export const RAIN={columnPitch:14,fontSize:13,glyphGap:14,minTrail:36,head:'#d9ffc3',body:'#83c79d',frameMs:60};
