@@ -1,4 +1,4 @@
-import {getLanguage} from './i18n.js?v=5';
+import {getLanguage} from './i18n.js?v=6';
 const T=(en,de,es,fr)=>({en,de,es,fr});
 const F=(key,label,symbol,unit,value,rule)=>({key,label,symbol,unit,value,rule});
 export const mathematicsUI={

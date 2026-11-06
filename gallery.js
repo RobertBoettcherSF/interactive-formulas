@@ -1,8 +1,9 @@
-import {t,setLanguage,translatePage} from './i18n.js?v=5';
-import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=5';
-import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=5';
-import './formula-card.js?v=5';
-import './rain.js?v=5';
+import {t,setLanguage,translatePage} from './i18n.js?v=6';
+import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=6';
+import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=6';
+import {physicsCards,physText,groupText as physGroupText,groupNames as physGroupNames} from './physics.js?v=6';
+import './formula-card.js?v=6';
+import './rain.js?v=6';
 const topics=['chemistry','mathematics','physics','computer-science'];
 const validTopic=value=>topics.includes(value);
 const queryTopic=()=>new URL(location.href).searchParams.get('topic');
@@ -10,7 +11,8 @@ let topic=validTopic(queryTopic())?queryTopic():(document.body.dataset.initialTo
 const content=document.getElementById('topic-content');
 const collections={
  chemistry:{cards:chemistryCards,names:groupNames,text:chemText,group:groupText,prefix:'chem'},
- mathematics:{cards:mathematicsCards,names:mathGroupNames,text:mathText,group:mathGroupText,prefix:'math'}
+ mathematics:{cards:mathematicsCards,names:mathGroupNames,text:mathText,group:mathGroupText,prefix:'math'},
+ physics:{cards:physicsCards,names:physGroupNames,text:physText,group:physGroupText,prefix:'phys'}
 };
 function collectionMarkup(name){
  const spec=collections[name],groups=Object.keys(spec.names);

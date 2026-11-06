@@ -2,20 +2,25 @@
 
 A learning lab for understanding relationships by changing values and following calculations.
 
-**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=5)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=5)**
+**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=6)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=6)**
 
-## Version 0.5
+## Version 0.6
 
 1. The project is titled **Syllabus-Repo** on the introduction, gallery and browser tabs. A subdued Lorenz animation remains in the background. Click or tap anywhere to enter.
 2. Chemistry keeps **36 interactive cards in eight topic groups**.
-3. Mathematics now includes **122 interactive cards in ten topic groups**: numbers, powers and percentages; area and volume; equations; functions; geometry and trigonometry; probability and data; calculus; vectors in space; sequences and series; complex numbers.
+3. Mathematics keeps **122 interactive cards in ten topic groups**.
 4. Equations include the quadratic formula (discriminant and both real roots). Geometry includes Pythagoras, the intercept theorem, and right-triangle sine, cosine and tangent. The unit-circle sine and cosine cards remain, in radians.
 5. Every Mathematics card shows a formula, what the symbols mean, sample inputs, an initial result, substituted steps, validation and Reset. Expand a topic or use the group links to explore it.
 6. UK English, German, Spanish and French cover card titles, explanations, labels and gallery controls. Results and substituted numbers follow the selected locale. Language changes preserve entered values.
-7. Physics retains only the two shared starter demonstrations. Computer Science remains a preparation space; its full collection has not been added.
-8. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
+7. Physics now includes **77 interactive cards in ten topic groups**: motion; forces; mechanical energy and momentum; electric current and electrical energy; optics; heat and thermal energy; electromagnetism and induction; oscillations and waves; static electric and magnetic fields; nuclear and quantum relations.
+8. Computer Science remains a preparation space; its full collection has not been added.
+9. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
 
-**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=5)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=5)**
+**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=6)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=6)** · **[Open Physics](https://robertboettchersf.github.io/interactive-formulas/physics.html?v=6)**
+
+### Physics scope
+
+Speed is distance over time, resistance is voltage over current, and force in one dimension is mass times acceleration. The impulse relation is F·Δt = m·Δv. Work along a constant force is force times distance. Kinetic energy and gravitational energy are the two mechanical forms used in an exchange that starts from rest. Ideal-transformer voltages follow the turns, and the currents run in the opposite ratio. Photon energy is proportional to frequency, and an electron’s wavelength is the Planck constant divided by its momentum. A mass difference corresponds to Δm c². Radioactive decay uses halves of the half-life. A negative value under a speed square root is rejected, and a speed used in the Lorentz factor must stay below the speed of light. Reflection is limited to 0°–90°, and efficiency cannot exceed 1.
 
 ### Mathematics scope
 

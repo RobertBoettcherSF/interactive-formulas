@@ -1,15 +1,16 @@
-import {t,formatNumber as format,getLanguage} from './i18n.js?v=5';
-import {chemistryCards,chemText,groupText,labelText} from './chemistry.js?v=5';
-import {mathematicsCards,mathText,groupText as mathGroupText,labelText as mathLabelText} from './mathematics.js?v=5';
+import {t,formatNumber as format,getLanguage} from './i18n.js?v=6';
+import {chemistryCards,chemText,groupText,labelText} from './chemistry.js?v=6';
+import {mathematicsCards,mathText,groupText as mathGroupText,labelText as mathLabelText} from './mathematics.js?v=6';
+import {physicsCards,physText,groupText as physGroupText,labelText as physLabelText} from './physics.js?v=6';
 export const formulas={
  linear:{fields:[{key:'m',value:2},{key:'x',value:3},{key:'b',value:1}],calculate:({m,x,b})=>m*x+b,equation:()=> 'y = mx + b',working:v=>`y = (${format(v.m)} × ${format(v.x)}) + (${format(v.b)})`},
  percentage:{fields:[{key:'whole',value:80},{key:'p',value:15}],calculate:({whole,p})=>whole*p/100,equation:()=>`${t('part')} = ${t('whole')} × p / 100`,working:v=>`${t('part')} = ${format(v.whole)} × ${format(v.p)} / 100`}
 };
-export const allCards={...formulas,...Object.fromEntries(chemistryCards.map(c=>[c.id,c])),...Object.fromEntries(mathematicsCards.map(c=>[c.id,c]))};
-const subjectOf=kind=>kind.startsWith('chem-')?'chem':kind.startsWith('math-')?'math':null;
-const uiText=(subject,key)=>subject==='chem'?chemText(key):mathText(key);
-const gText=(subject,key)=>subject==='chem'?groupText(key):mathGroupText(key);
-const lText=(subject,key)=>subject==='chem'?labelText(key):mathLabelText(key);
+export const allCards={...formulas,...Object.fromEntries(chemistryCards.map(c=>[c.id,c])),...Object.fromEntries(mathematicsCards.map(c=>[c.id,c])),...Object.fromEntries(physicsCards.map(c=>[c.id,c]))};
+const subjectOf=kind=>kind.startsWith('chem-')?'chem':kind.startsWith('math-')?'math':kind.startsWith('phys-')?'phys':null;
+const uiText=(subject,key)=>subject==='chem'?chemText(key):subject==='phys'?physText(key):mathText(key);
+const gText=(subject,key)=>subject==='chem'?groupText(key):subject==='phys'?physGroupText(key):mathGroupText(key);
+const lText=(subject,key)=>subject==='chem'?labelText(key):subject==='phys'?physLabelText(key):mathLabelText(key);
 const ruleBroken=(rule,value)=>rule==='positive'&&value<=0||rule==='nonnegative'&&value<0||rule==='integer'&&(!Number.isInteger(value)||value<1)||rule==='whole'&&(!Number.isInteger(value)||value<0)||rule==='unit'&&(value<0||value>1)||rule==='nonzero'&&value===0;
 class FormulaCard extends HTMLElement{
  connectedCallback(){this.render();this.onLanguage=()=>this.render(true);window.addEventListener('languagechange',this.onLanguage);}
