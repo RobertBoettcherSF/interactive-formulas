@@ -2,9 +2,9 @@
 
 A learning lab for understanding relationships by changing values and following calculations.
 
-**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=6)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=6)**
+**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=7)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=7)**
 
-## Version 0.6
+## Version 0.7
 
 1. The project is titled **Syllabus-Repo** on the introduction, gallery and browser tabs. A subdued Lorenz animation remains in the background. Click or tap anywhere to enter.
 2. Chemistry keeps **36 interactive cards in eight topic groups**.
@@ -12,11 +12,15 @@ A learning lab for understanding relationships by changing values and following 
 4. Equations include the quadratic formula (discriminant and both real roots). Geometry includes Pythagoras, the intercept theorem, and right-triangle sine, cosine and tangent. The unit-circle sine and cosine cards remain, in radians.
 5. Every Mathematics card shows a formula, what the symbols mean, sample inputs, an initial result, substituted steps, validation and Reset. Expand a topic or use the group links to explore it.
 6. UK English, German, Spanish and French cover card titles, explanations, labels and gallery controls. Results and substituted numbers follow the selected locale. Language changes preserve entered values.
-7. Physics now includes **77 interactive cards in ten topic groups**: motion; forces; mechanical energy and momentum; electric current and electrical energy; optics; heat and thermal energy; electromagnetism and induction; oscillations and waves; static electric and magnetic fields; nuclear and quantum relations.
-8. Computer Science remains a preparation space; its full collection has not been added.
+7. Physics keeps **77 interactive cards in ten topic groups**: motion; forces; mechanical energy and momentum; electric current and electrical energy; optics; heat and thermal energy; electromagnetism and induction; oscillations and waves; static electric and magnetic fields; nuclear and quantum relations.
+8. Computer Science now includes **42 interactive cards in six topic groups**: number systems and encoding; symmetric ciphers; graphs; recursion; binary trees; algorithm complexity.
 9. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
 
-**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=6)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=6)** · **[Open Physics](https://robertboettchersf.github.io/interactive-formulas/physics.html?v=6)**
+**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=7)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=7)** · **[Open Physics](https://robertboettchersf.github.io/interactive-formulas/physics.html?v=7)** · **[Open Computer Science](https://robertboettchersf.github.io/interactive-formulas/computer-science.html?v=7)**
+
+### Computer Science scope
+
+A binary place with index p is worth 2 to the power p, and one byte is eight bits. Four hexadecimal digits use places 4096, 256, 16 and 1; one such digit is four bits. Two’s complement on n bits runs from −2 to the power n−1 up to one below that power. Unsigned addition keeps the remainder modulo 2 to the power n. A half adder and a full adder return the sum bit and the carry. Caesar and one Vigenère letter move a letter position modulo 26, with A numbered 0. An adjacency matrix of n vertices has n squared entries, and a row of ones and zeros sums to a degree. The greatest common divisor is the last non-zero remainder. Moving n disks in the Tower of Hanoi takes one less than 2 to the power n. Height counts edges from the root. Operation counts cover a linear, quadratic, logarithmic and exponential model, the adjacent comparisons of bubble sort, a balanced merge-sort level count, and a brute-force candidate count.
 
 ### Physics scope
 
@@ -56,6 +60,7 @@ Run `npm test` (Node.js; no package installation needed) for the sample-result a
 - `gallery.js`, `i18n.js`: topic state and translations; internal topic keys remain English.
 - `formula-card.js`: shared interactive component, input validation and worked steps.
 - `chemistry.js`: Chemistry calculations and four-language card content.
+- `computer-science.js`: Computer Science calculations and four-language card content.
 - `rain.js`: whole-akshara canvas background.
 - `assets/noto-sans-devanagari.ttf`, `assets/OFL.txt`: bundled font and its SIL Open Font License.
 - `styles.css`, `version.txt`: shared appearance and authoritative build stamp.

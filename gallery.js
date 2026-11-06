@@ -1,9 +1,10 @@
-import {t,setLanguage,translatePage} from './i18n.js?v=6';
-import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=6';
-import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=6';
-import {physicsCards,physText,groupText as physGroupText,groupNames as physGroupNames} from './physics.js?v=6';
-import './formula-card.js?v=6';
-import './rain.js?v=6';
+import {t,setLanguage,translatePage} from './i18n.js?v=7';
+import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=7';
+import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=7';
+import {physicsCards,physText,groupText as physGroupText,groupNames as physGroupNames} from './physics.js?v=7';
+import {computerScienceCards,csText,groupText as csGroupText,groupNames as csGroupNames} from './computer-science.js?v=7';
+import './formula-card.js?v=7';
+import './rain.js?v=7';
 const topics=['chemistry','mathematics','physics','computer-science'];
 const validTopic=value=>topics.includes(value);
 const queryTopic=()=>new URL(location.href).searchParams.get('topic');
@@ -12,7 +13,8 @@ const content=document.getElementById('topic-content');
 const collections={
  chemistry:{cards:chemistryCards,names:groupNames,text:chemText,group:groupText,prefix:'chem'},
  mathematics:{cards:mathematicsCards,names:mathGroupNames,text:mathText,group:mathGroupText,prefix:'math'},
- physics:{cards:physicsCards,names:physGroupNames,text:physText,group:physGroupText,prefix:'phys'}
+ physics:{cards:physicsCards,names:physGroupNames,text:physText,group:physGroupText,prefix:'phys'},
+ 'computer-science':{cards:computerScienceCards,names:csGroupNames,text:csText,group:csGroupText,prefix:'cs'}
 };
 function collectionMarkup(name){
  const spec=collections[name],groups=Object.keys(spec.names);
