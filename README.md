@@ -2,21 +2,21 @@
 
 A learning lab for understanding relationships by changing values and following calculations.
 
-**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=9)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=9)**
+**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=10)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=10)**
 
-## Version 0.9
+## Version 0.10
 
 1. The project is titled **Syllabus-Repo** on the introduction, gallery and browser tabs. A subdued Lorenz animation remains in the background. Click or tap anywhere to enter.
 2. Chemistry keeps **36 interactive cards in eight topic groups**.
-3. Mathematics keeps **122 interactive cards in ten topic groups**.
-4. Equations include the quadratic formula (discriminant and both real roots). Geometry includes Pythagoras, the intercept theorem, and right-triangle sine, cosine and tangent. The unit-circle sine and cosine cards remain, in radians.
+3. Mathematics now includes **133 interactive cards in ten topic groups**.
+4. Equations include the quadratic formula (discriminant and both real roots). Geometry includes Pythagoras, the intercept theorem, right-triangle sine, cosine and tangent, and the sine and cosine rules for any triangle. Sequences include the binomial theorem. Numbers include compound percent-per-period growth. The unit-circle sine and cosine cards remain, in radians.
 5. Every Mathematics card shows a formula, what the symbols mean, sample inputs, an initial result, substituted steps, validation and Reset. Expand a topic or use the group links to explore it.
 6. UK English, German, Spanish and French cover card titles, explanations, labels and gallery controls. Results and substituted numbers follow the selected locale. Language changes preserve entered values.
 7. Physics now includes **91 interactive cards in ten topic groups**: motion; forces; mechanical energy and momentum; electric current and electrical energy; optics; heat and thermal energy; electromagnetism and induction; oscillations and waves; static electric and magnetic fields; nuclear and quantum relations. Optics adds Snell’s law and the thin-lens equation. Heat adds the ideal-gas law. Forces adds Kepler’s third law. Nuclear and quantum relations add the infinite square well.
 8. Computer Science now includes **53 interactive cards in seven topic groups**: number systems and encoding; symmetric ciphers; codes and modular arithmetic; graphs; recursion; binary trees; algorithm complexity. Codes add an ISBN-style check, Hamming distance and a modular power. Graphs add breadth-first and depth-first counts and visit orders on four nodes, plus a Dijkstra distance and one relaxation. Binary trees add a Huffman encoded length.
 9. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
 
-**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=9)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=9)** · **[Open Physics](https://robertboettchersf.github.io/interactive-formulas/physics.html?v=9)** · **[Open Computer Science](https://robertboettchersf.github.io/interactive-formulas/computer-science.html?v=9)**
+**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=10)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=10)** · **[Open Physics](https://robertboettchersf.github.io/interactive-formulas/physics.html?v=10)** · **[Open Computer Science](https://robertboettchersf.github.io/interactive-formulas/computer-science.html?v=10)**
 
 ### Computer Science scope
 
@@ -28,7 +28,7 @@ Speed is distance over time, resistance is voltage over current, and force in on
 
 ### Mathematics scope
 
-The quadratic formula returns real roots. A negative discriminant is shown on its own card and blocks the root cards. Pythagoras gives the hypotenuse or a missing leg, and the hypotenuse must be the longest side. The intercept theorem uses one proportion for two rays cut by parallel lines, rearranged to a missing segment. Right-triangle sine, cosine and tangent use opposite, adjacent and hypotenuse, with the angle in degrees. Separate cards give sine and cosine on the unit circle in radians. Circle, pyramid, cone and sphere cards use the standard relations for those figures. A prism volume is base area times height, including an oblique prism. Percentage means a fraction with denominator 100.
+The quadratic formula returns real roots. A negative discriminant is shown on its own card and blocks the root cards. Pythagoras gives the hypotenuse or a missing leg, and the hypotenuse must be the longest side. The intercept theorem uses one proportion for two rays cut by parallel lines, rearranged to a missing segment. Right-triangle sine, cosine and tangent use opposite, adjacent and hypotenuse, with the angle in degrees. Separate cards give sine and cosine on the unit circle in radians. The sine rule and the cosine rule apply to any triangle. The binomial theorem expands (a + b)ⁿ for a whole-number power up to 20. Compound growth multiplies by 1 + r/100 each period; it is not simple interest. Circle, pyramid, cone and sphere cards use the standard relations for those figures. A prism volume is base area times height, including an oblique prism. Percentage means a fraction with denominator 100.
 
 ### Scientific scope and conventions
 

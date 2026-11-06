@@ -1,10 +1,10 @@
-import {t,setLanguage,translatePage} from './i18n.js?v=9';
-import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=9';
-import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=9';
-import {physicsCards,physText,groupText as physGroupText,groupNames as physGroupNames} from './physics.js?v=9';
-import {computerScienceCards,csText,groupText as csGroupText,groupNames as csGroupNames} from './computer-science.js?v=9';
-import './formula-card.js?v=9';
-import './rain.js?v=9';
+import {t,setLanguage,translatePage} from './i18n.js?v=10';
+import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=10';
+import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=10';
+import {physicsCards,physText,groupText as physGroupText,groupNames as physGroupNames} from './physics.js?v=10';
+import {computerScienceCards,csText,groupText as csGroupText,groupNames as csGroupNames} from './computer-science.js?v=10';
+import './formula-card.js?v=10';
+import './rain.js?v=10';
 const topics=['chemistry','mathematics','physics','computer-science'];
 const validTopic=value=>topics.includes(value);
 const queryTopic=()=>new URL(location.href).searchParams.get('topic');

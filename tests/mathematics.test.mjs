@@ -135,7 +135,18 @@ const spec={
 'math-rt-adjacent-tan':v=>v.opp/Math.tan(v.theta*Math.PI/180),
 'math-rt-angle-sin':v=>Math.asin(v.opp/v.hyp)*180/Math.PI,
 'math-rt-angle-cos':v=>Math.acos(v.adj/v.hyp)*180/Math.PI,
-'math-rt-angle-tan':v=>Math.atan(v.opp/v.adj)*180/Math.PI
+'math-rt-angle-tan':v=>Math.atan(v.opp/v.adj)*180/Math.PI,
+'math-compound-amount':v=>v.P*(1+v.r/100)**v.n,
+'math-compound-principal':v=>v.A/(1+v.r/100)**v.n,
+'math-compound-rate':v=>100*((v.A/v.P)**(1/v.n)-1),
+'math-compound-periods':v=>Math.log(v.A/v.P)/Math.log(1+v.r/100),
+'math-binomial-expand':v=>(v.a+v.b)**v.n,
+'math-binomial-term':v=>{const c=(n,k)=>{k=Math.min(k,n-k);let v=1;for(let i=1;i<=k;i++)v=v*(n-k+i)/i;return v;};return c(v.n,v.k)*(v.n-v.k===0?1:v.a**(v.n-v.k))*(v.k===0?1:v.b**v.k);},
+'math-sine-side':v=>v.b*Math.sin(v.A*Math.PI/180)/Math.sin(v.B*Math.PI/180),
+'math-sine-included':v=>v.c*Math.sin(v.A*Math.PI/180)/Math.sin((180-v.A-v.B)*Math.PI/180),
+'math-sine-angle':v=>Math.asin(v.a*Math.sin(v.B*Math.PI/180)/v.b)*180/Math.PI,
+'math-cosine-side':v=>Math.sqrt(v.a**2+v.b**2-2*v.a*v.b*Math.cos(v.C*Math.PI/180)),
+'math-cosine-angle':v=>Math.acos((v.a**2+v.b**2-v.c**2)/(2*v.a*v.b))*180/Math.PI
 };
 const recalc={
 'math-binomial-coefficient':{n:6,k:2,expected:15},
@@ -158,10 +169,16 @@ const recalc={
 'math-quadratic-minus':{a:1,b:-5,c:6,expected:2},
 'math-pythagoras-hypotenuse':{a:5,b:12,expected:13},
 'math-pythagoras-leg':{c:13,b:5,expected:12},
-'math-intercept-between':{p:3,u:6,r:5,expected:10}
+'math-intercept-between':{p:3,u:6,r:5,expected:10},
+'math-sine-side':{A:30,b:10,B:90,expected:5},
+'math-cosine-side':{a:3,b:4,C:90,expected:5},
+'math-sine-angle':{a:10,b:10,B:60,expected:60},
+'math-binomial-expand':{a:1,b:1,n:5,expected:32},
+'math-binomial-term':{a:1,b:1,n:5,k:2,expected:10},
+'math-compound-amount':{P:200,r:10,n:2,expected:242}
 };
 test('collection shape',()=>{
- assert.equal(mathematicsCards.length,122);
+ assert.equal(mathematicsCards.length,133);
  assert.equal(Object.keys(groupNames).length,10);
  assert.deepEqual(Object.keys(spec).sort(),mathematicsCards.map(card=>card.id).sort());
  for(const card of mathematicsCards){
@@ -257,4 +274,18 @@ test('field boundaries reject impossible inputs',()=>{
  check('math-rt-angle-sin',{opp:5},'legLonger');
  check('math-rt-angle-cos',{adj:6},'legLonger');
  check('math-rt-tangent',{adj:0},'positive');
+ check('math-sine-side',{A:120,B:70},'triangle');
+ check('math-sine-side',{B:180},'interior');
+ check('math-sine-angle',{a:12,b:10,B:30},'ambiguous');
+ check('math-sine-angle',{a:25,b:10,B:30},'noTriangle');
+ check('math-sine-included',{A:100,B:90},'triangle');
+ check('math-cosine-side',{C:180},'interior');
+ check('math-cosine-angle',{c:20},'noTriangle');
+ check('math-cosine-angle',{a:3,b:4,c:7},'noTriangle');
+ check('math-binomial-expand',{n:21},'binomialN');
+ check('math-binomial-expand',{a:1,b:-1,n:0},'powerZero');
+ check('math-binomial-term',{k:5},'termK');
+ check('math-compound-amount',{r:-100},'growthRate');
+ check('math-compound-periods',{r:0},'flatRate');
+ check('math-compound-principal',{A:0},'positive');
 });
