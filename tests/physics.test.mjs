@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {physicsCards,groupNames,constants} from '../physics.js';
-const {e,h,c,mu0,eps0,k,sigma,wien,G}=constants;
+const {e,h,c,mu0,eps0,k,sigma,wien,G,R}=constants;
 const byId=Object.fromEntries(physicsCards.map(card=>[card.id,card]));
 const values=card=>Object.fromEntries(card.fields.map(field=>[field.key,field.value]));
 const ruleBroken=(rule,value)=>rule==='positive'&&value<=0||rule==='nonnegative'&&value<0||rule==='integer'&&(!Number.isInteger(value)||value<1)||rule==='whole'&&(!Number.isInteger(value)||value<0)||rule==='unit'&&(value<0||value>1)||rule==='nonzero'&&value===0;
@@ -29,6 +29,8 @@ const spec={
 'phys-weight':v=>v.m*v.g,
 'phys-centripetal':v=>v.m*v.v**2/v.r,
 'phys-gravity':v=>G*v.m1*v.m2/v.r**2,
+'phys-kepler-period':v=>v.T1*(v.a2/v.a1)**1.5,
+'phys-kepler-axis':v=>v.a1*Math.cbrt((v.T2/v.T1)**2),
 'phys-hooke':v=>v.D*v.x,
 'phys-hydrostatic':v=>v.rho*v.g*v.h,
 'phys-buoyancy':v=>v.rho*v.V*v.g,
@@ -50,10 +52,21 @@ const spec={
 'phys-series':v=>v.R1+v.R2+v.R3,
 'phys-parallel':v=>1/(1/v.R1+1/v.R2),
 'phys-reflection':v=>v.theta,
+'phys-snell-angle2':v=>Math.asin(v.n1*Math.sin(v.theta1*Math.PI/180)/v.n2)*180/Math.PI,
+'phys-snell-angle1':v=>Math.asin(v.n2*Math.sin(v.theta2*Math.PI/180)/v.n1)*180/Math.PI,
+'phys-snell-n2':v=>v.n1*Math.sin(v.theta1*Math.PI/180)/Math.sin(v.theta2*Math.PI/180),
+'phys-snell-n1':v=>v.n2*Math.sin(v.theta2*Math.PI/180)/Math.sin(v.theta1*Math.PI/180),
+'phys-lens-image':v=>v.u*v.f/(v.u-v.f),
+'phys-lens-object':v=>v.v*v.f/(v.v-v.f),
+'phys-lens-focal':v=>v.u*v.v/(v.u+v.v),
 'phys-fringe':v=>v.lambda*v.L/v.d,
 'phys-path':v=>v.n*v.lambda,
 'phys-bragg':v=>2*v.d*Math.sin(v.theta*Math.PI/180)/v.n,
 'phys-heat':v=>v.c*v.m*v.dT,
+'phys-gas-pressure':v=>v.n*R*v.T/v.V,
+'phys-gas-volume':v=>v.n*R*v.T/v.P,
+'phys-gas-amount':v=>v.P*v.V/(R*v.T),
+'phys-gas-temperature':v=>v.P*v.V/(v.n*R),
 'phys-conduction':v=>v.lambda*v.A*v.dT/v.d,
 'phys-wien':v=>wien/v.T,
 'phys-stefan':v=>sigma*v.A*v.T**4,
@@ -80,6 +93,7 @@ const spec={
 'phys-capacitance':v=>eps0*v.er*v.A/v.d,
 'phys-flux-density':v=>v.F/(v.I*v.L),
 'phys-photon':v=>h*v.f,
+'phys-well':v=>v.n*v.n*h*h/(8*v.m*v.L*v.L),
 'phys-photon-momentum':v=>h/v.lambda,
 'phys-debroglie':v=>h/v.p,
 'phys-mass-energy':v=>v.dm*c*c,
@@ -95,7 +109,7 @@ const spec={
 'phys-energy-momentum':v=>Math.hypot(v.p*c,v.m*c*c)
 };
 test('physics collection shape',()=>{
- assert.equal(physicsCards.length,77);
+ assert.equal(physicsCards.length,91);
  assert.equal(Object.keys(groupNames).length,10);
  assert.deepEqual(Object.keys(spec).sort(),physicsCards.map(card=>card.id).sort());
  for(const card of physicsCards){
@@ -117,7 +131,13 @@ test('physics recalculation',()=>{
   'phys-ohm':{U:9,I:1.5,expected:6},
   'phys-decay':{N0:1000,t:5,T:5,expected:500},
   'phys-heat':{c:4000,m:0.25,dT:-2,expected:-2000},
-  'phys-wave':{f:2,lambda:6.25,expected:12.5}
+  'phys-wave':{f:2,lambda:6.25,expected:12.5},
+  'phys-snell-angle2':{n1:1,theta1:0,n2:1.5,expected:0},
+  'phys-lens-image':{u:0.2,f:0.1,expected:0.2},
+  'phys-gas-pressure':{n:2,T:250,V:0.01,expected:2*R*250/0.01},
+  'phys-kepler-period':{T1:1,a1:1,a2:9,expected:27},
+  'phys-kepler-axis':{a1:1,T1:1,T2:27,expected:9},
+  'phys-well':{n:2,m:9.1093837e-31,L:1e-9,expected:4*h*h/(8*9.1093837e-31*1e-18)}
  };
  for(const [id,change] of Object.entries(cases)){
   const input={...values(byId[id]),...change};
@@ -146,4 +166,13 @@ test('physics field boundaries',()=>{
  check('phys-decay',{T:0},'positive');
  check('phys-photon',{f:-1},'positive');
  check('phys-coil-field',{L:0},'positive');
+ check('phys-snell-angle2',{n1:2,theta1:45,n2:1},'snell');
+ check('phys-snell-angle1',{theta2:90},'optic');
+ check('phys-snell-n2',{theta2:0},'positive');
+ check('phys-lens-image',{u:0.1,f:0.1},'lens');
+ check('phys-lens-focal',{u:1,v:-1},'lens');
+ check('phys-gas-volume',{V:0.025,T:-5},'positive');
+ check('phys-gas-pressure',{V:0},'positive');
+ check('phys-kepler-axis',{a1:0},'positive');
+ check('phys-well',{n:0},'integer');
 });

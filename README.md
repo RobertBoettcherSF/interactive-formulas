@@ -2,9 +2,9 @@
 
 A learning lab for understanding relationships by changing values and following calculations.
 
-**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=7)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=7)**
+**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=8)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=8)**
 
-## Version 0.7
+## Version 0.8
 
 1. The project is titled **Syllabus-Repo** on the introduction, gallery and browser tabs. A subdued Lorenz animation remains in the background. Click or tap anywhere to enter.
 2. Chemistry keeps **36 interactive cards in eight topic groups**.
@@ -12,11 +12,11 @@ A learning lab for understanding relationships by changing values and following 
 4. Equations include the quadratic formula (discriminant and both real roots). Geometry includes Pythagoras, the intercept theorem, and right-triangle sine, cosine and tangent. The unit-circle sine and cosine cards remain, in radians.
 5. Every Mathematics card shows a formula, what the symbols mean, sample inputs, an initial result, substituted steps, validation and Reset. Expand a topic or use the group links to explore it.
 6. UK English, German, Spanish and French cover card titles, explanations, labels and gallery controls. Results and substituted numbers follow the selected locale. Language changes preserve entered values.
-7. Physics keeps **77 interactive cards in ten topic groups**: motion; forces; mechanical energy and momentum; electric current and electrical energy; optics; heat and thermal energy; electromagnetism and induction; oscillations and waves; static electric and magnetic fields; nuclear and quantum relations.
+7. Physics now includes **91 interactive cards in ten topic groups**: motion; forces; mechanical energy and momentum; electric current and electrical energy; optics; heat and thermal energy; electromagnetism and induction; oscillations and waves; static electric and magnetic fields; nuclear and quantum relations. Optics adds Snell’s law and the thin-lens equation. Heat adds the ideal-gas law. Forces adds Kepler’s third law. Nuclear and quantum relations add the infinite square well.
 8. Computer Science now includes **42 interactive cards in six topic groups**: number systems and encoding; symmetric ciphers; graphs; recursion; binary trees; algorithm complexity.
 9. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
 
-**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=7)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=7)** · **[Open Physics](https://robertboettchersf.github.io/interactive-formulas/physics.html?v=7)** · **[Open Computer Science](https://robertboettchersf.github.io/interactive-formulas/computer-science.html?v=7)**
+**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=8)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=8)** · **[Open Physics](https://robertboettchersf.github.io/interactive-formulas/physics.html?v=8)** · **[Open Computer Science](https://robertboettchersf.github.io/interactive-formulas/computer-science.html?v=8)**
 
 ### Computer Science scope
 
@@ -24,7 +24,7 @@ A binary place with index p is worth 2 to the power p, and one byte is eight bit
 
 ### Physics scope
 
-Speed is distance over time, resistance is voltage over current, and force in one dimension is mass times acceleration. The impulse relation is F·Δt = m·Δv. Work along a constant force is force times distance. Kinetic energy and gravitational energy are the two mechanical forms used in an exchange that starts from rest. Ideal-transformer voltages follow the turns, and the currents run in the opposite ratio. Photon energy is proportional to frequency, and an electron’s wavelength is the Planck constant divided by its momentum. A mass difference corresponds to Δm c². Radioactive decay uses halves of the half-life. A negative value under a speed square root is rejected, and a speed used in the Lorentz factor must stay below the speed of light. Reflection is limited to 0°–90°, and efficiency cannot exceed 1.
+Speed is distance over time, resistance is voltage over current, and force in one dimension is mass times acceleration. The impulse relation is F·Δt = m·Δv. Work along a constant force is force times distance. Kinetic energy and gravitational energy are the two mechanical forms used in an exchange that starts from rest. Ideal-transformer voltages follow the turns, and the currents run in the opposite ratio. Photon energy is proportional to frequency, and an electron’s wavelength is the Planck constant divided by its momentum. A mass difference corresponds to Δm c². Radioactive decay uses halves of the half-life. A negative value under a speed square root is rejected, and a speed used in the Lorentz factor must stay below the speed of light. Reflection is limited to 0°–90°, and efficiency cannot exceed 1. Snell’s law rejects a product n sin θ that is larger than the other index. A thin lens has no finite distance when the denominator is zero. The ideal-gas law uses absolute temperature and a positive volume. Kepler’s third law compares two orbits through T² ∝ a³. An infinite square well has no level n = 0.
 
 ### Mathematics scope
 
