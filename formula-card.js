@@ -1,6 +1,6 @@
-import {t,formatNumber as format,getLanguage} from './i18n.js?v=4';
-import {chemistryCards,chemText,groupText,labelText} from './chemistry.js?v=4';
-import {mathematicsCards,mathText,groupText as mathGroupText,labelText as mathLabelText} from './mathematics.js?v=4';
+import {t,formatNumber as format,getLanguage} from './i18n.js?v=5';
+import {chemistryCards,chemText,groupText,labelText} from './chemistry.js?v=5';
+import {mathematicsCards,mathText,groupText as mathGroupText,labelText as mathLabelText} from './mathematics.js?v=5';
 export const formulas={
  linear:{fields:[{key:'m',value:2},{key:'x',value:3},{key:'b',value:1}],calculate:({m,x,b})=>m*x+b,equation:()=> 'y = mx + b',working:v=>`y = (${format(v.m)} × ${format(v.x)}) + (${format(v.b)})`},
  percentage:{fields:[{key:'whole',value:80},{key:'p',value:15}],calculate:({whole,p})=>whole*p/100,equation:()=>`${t('part')} = ${t('whole')} × p / 100`,working:v=>`${t('part')} = ${format(v.whole)} × ${format(v.p)} / 100`}

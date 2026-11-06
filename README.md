@@ -2,23 +2,24 @@
 
 A learning lab for understanding relationships by changing values and following calculations.
 
-**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=4)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=4)**
+**[Open the live site](https://robertboettchersf.github.io/interactive-formulas/?v=5)** · **[Open the topic gallery](https://robertboettchersf.github.io/interactive-formulas/gallery.html?v=5)**
 
-## Version 0.4
+## Version 0.5
 
 1. The project is titled **Syllabus-Repo** on the introduction, gallery and browser tabs. A subdued Lorenz animation remains in the background. Click or tap anywhere to enter.
 2. Chemistry keeps **36 interactive cards in eight topic groups**.
-3. Mathematics now includes **99 interactive cards in ten topic groups**: numbers, powers and percentages; area and volume; equations; functions; geometry and trigonometry; probability and data; calculus; vectors in space; sequences and series; complex numbers.
-4. Every Mathematics card shows a formula, what the symbols mean, sample inputs, an initial result, substituted steps, validation and Reset. Expand a topic or use the group links to explore it.
-5. UK English, German, Spanish and French cover card titles, explanations, labels and gallery controls. Results and substituted numbers follow the selected locale. Language changes preserve entered values.
-6. Physics retains only the two shared starter demonstrations. Computer Science remains a preparation space; its full collection has not been added.
-7. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
+3. Mathematics now includes **122 interactive cards in ten topic groups**: numbers, powers and percentages; area and volume; equations; functions; geometry and trigonometry; probability and data; calculus; vectors in space; sequences and series; complex numbers.
+4. Equations include the quadratic formula (discriminant and both real roots). Geometry includes Pythagoras, the intercept theorem, and right-triangle sine, cosine and tangent. The unit-circle sine and cosine cards remain, in radians.
+5. Every Mathematics card shows a formula, what the symbols mean, sample inputs, an initial result, substituted steps, validation and Reset. Expand a topic or use the group links to explore it.
+6. UK English, German, Spanish and French cover card titles, explanations, labels and gallery controls. Results and substituted numbers follow the selected locale. Language changes preserve entered values.
+7. Physics retains only the two shared starter demonstrations. Computer Science remains a preparation space; its full collection has not been added.
+8. Sanskrit digital rain, reduced-motion support, saved language and bright matching build stamps remain available.
 
-**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=4)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=4)**
+**[Open Chemistry](https://robertboettchersf.github.io/interactive-formulas/chemistry.html?v=5)** · **[Open Mathematics](https://robertboettchersf.github.io/interactive-formulas/mathematics.html?v=5)**
 
 ### Mathematics scope
 
-A card is included only when the relation itself is stated. The collection does not add the quadratic formula, Pythagoras, the intercept theorem or right-triangle side ratios, because those equations are not part of the stated relations used here. Sine and cosine are the unit-circle values, and the sine model uses radians. Circle, pyramid, cone and sphere cards use the standard relations for those figures. A prism volume is base area times height, including an oblique prism. Percentage means a fraction with denominator 100.
+The quadratic formula returns real roots. A negative discriminant is shown on its own card and blocks the root cards. Pythagoras gives the hypotenuse or a missing leg, and the hypotenuse must be the longest side. The intercept theorem uses one proportion for two rays cut by parallel lines, rearranged to a missing segment. Right-triangle sine, cosine and tangent use opposite, adjacent and hypotenuse, with the angle in degrees. Separate cards give sine and cosine on the unit circle in radians. Circle, pyramid, cone and sphere cards use the standard relations for those figures. A prism volume is base area times height, including an oblique prism. Percentage means a fraction with denominator 100.
 
 ### Scientific scope and conventions
 

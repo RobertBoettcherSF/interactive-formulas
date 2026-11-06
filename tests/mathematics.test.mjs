@@ -112,7 +112,30 @@ const spec={
 'math-modulus':v=>Math.hypot(v.a,v.b),
 'math-argument':v=>45,
 'math-product-real':v=>v.a*v.c-v.b*v.d,
-'math-product-imag':v=>v.a*v.d+v.b*v.c
+'math-product-imag':v=>v.a*v.d+v.b*v.c,
+'math-quadratic-discriminant':v=>v.b**2-4*v.a*v.c,
+'math-quadratic-plus':v=>(-v.b+Math.sqrt(v.b**2-4*v.a*v.c))/(2*v.a),
+'math-quadratic-minus':v=>(-v.b-Math.sqrt(v.b**2-4*v.a*v.c))/(2*v.a),
+'math-pythagoras-hypotenuse':v=>Math.hypot(v.a,v.b),
+'math-pythagoras-leg':v=>Math.sqrt(v.c**2-v.b**2),
+'math-intercept-far-ray':v=>v.r*v.q/v.p,
+'math-intercept-near-ray':v=>v.s*v.p/v.q,
+'math-intercept-far-first':v=>v.p*v.s/v.r,
+'math-intercept-far-parallel':v=>v.m*v.q/v.p,
+'math-intercept-near-parallel':v=>v.n*v.p/v.q,
+'math-intercept-between':v=>v.u*v.r/v.p,
+'math-rt-sine':v=>v.opp/v.hyp,
+'math-rt-cosine':v=>v.adj/v.hyp,
+'math-rt-tangent':v=>v.opp/v.adj,
+'math-rt-opposite':v=>v.hyp*Math.sin(v.theta*Math.PI/180),
+'math-rt-adjacent':v=>v.hyp*Math.cos(v.theta*Math.PI/180),
+'math-rt-hypotenuse-sin':v=>v.opp/Math.sin(v.theta*Math.PI/180),
+'math-rt-hypotenuse-cos':v=>v.adj/Math.cos(v.theta*Math.PI/180),
+'math-rt-opposite-tan':v=>v.adj*Math.tan(v.theta*Math.PI/180),
+'math-rt-adjacent-tan':v=>v.opp/Math.tan(v.theta*Math.PI/180),
+'math-rt-angle-sin':v=>Math.asin(v.opp/v.hyp)*180/Math.PI,
+'math-rt-angle-cos':v=>Math.acos(v.adj/v.hyp)*180/Math.PI,
+'math-rt-angle-tan':v=>Math.atan(v.opp/v.adj)*180/Math.PI
 };
 const recalc={
 'math-binomial-coefficient':{n:6,k:2,expected:15},
@@ -129,10 +152,16 @@ const recalc={
 'math-discount':{G:80,p:12.5,expected:70},
 'math-circle-area':{r:1,expected:Math.PI},
 'math-sphere-volume':{r:3,expected:36*Math.PI},
-'math-linear':{m:-4,x:0.5,t:6.25,expected:4.25}
+'math-linear':{m:-4,x:0.5,t:6.25,expected:4.25},
+'math-quadratic-discriminant':{a:1,b:0,c:1,expected:-4},
+'math-quadratic-plus':{a:1,b:-5,c:6,expected:3},
+'math-quadratic-minus':{a:1,b:-5,c:6,expected:2},
+'math-pythagoras-hypotenuse':{a:5,b:12,expected:13},
+'math-pythagoras-leg':{c:13,b:5,expected:12},
+'math-intercept-between':{p:3,u:6,r:5,expected:10}
 };
 test('collection shape',()=>{
- assert.equal(mathematicsCards.length,99);
+ assert.equal(mathematicsCards.length,122);
  assert.equal(Object.keys(groupNames).length,10);
  assert.deepEqual(Object.keys(spec).sort(),mathematicsCards.map(card=>card.id).sort());
  for(const card of mathematicsCards){
@@ -204,4 +233,28 @@ test('field boundaries reject impossible inputs',()=>{
  check('math-scale',{n:0},'positive');
  check('math-count',{a:0},'integer');
  check('math-null',{m:0},'nonzero');
+ check('math-quadratic-plus',{a:0},'nonzero');
+ check('math-quadratic-plus',{a:1,b:0,c:1},'discriminant');
+ check('math-quadratic-minus',{a:1,b:1,c:1},'discriminant');
+ check('math-quadratic-discriminant',{a:1,b:0,c:1},null);
+ check('math-pythagoras-leg',{c:4,b:5},'legLonger');
+ check('math-pythagoras-leg',{c:4,b:4},'legLonger');
+ check('math-pythagoras-hypotenuse',{a:0},'positive');
+ check('math-intercept-far-ray',{q:3},'order');
+ check('math-intercept-near-ray',{q:2},'order');
+ check('math-intercept-far-first',{s:4},'order');
+ check('math-intercept-far-parallel',{q:3},'order');
+ check('math-intercept-near-parallel',{p:8},'order');
+ check('math-rt-sine',{opp:5},'legLonger');
+ check('math-rt-cosine',{adj:5},'legLonger');
+ check('math-rt-opposite',{theta:0},'acute');
+ check('math-rt-opposite',{theta:90},'acute');
+ check('math-rt-adjacent',{theta:90},'acute');
+ check('math-rt-hypotenuse-sin',{theta:-10},'acute');
+ check('math-rt-hypotenuse-cos',{theta:90},'acute');
+ check('math-rt-opposite-tan',{theta:0},'acute');
+ check('math-rt-adjacent-tan',{theta:180},'acute');
+ check('math-rt-angle-sin',{opp:5},'legLonger');
+ check('math-rt-angle-cos',{adj:6},'legLonger');
+ check('math-rt-tangent',{adj:0},'positive');
 });

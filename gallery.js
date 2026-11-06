@@ -1,8 +1,8 @@
-import {t,setLanguage,translatePage} from './i18n.js?v=4';
-import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=4';
-import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=4';
-import './formula-card.js?v=4';
-import './rain.js?v=4';
+import {t,setLanguage,translatePage} from './i18n.js?v=5';
+import {chemistryCards,chemText,groupText,groupNames} from './chemistry.js?v=5';
+import {mathematicsCards,mathText,groupText as mathGroupText,groupNames as mathGroupNames} from './mathematics.js?v=5';
+import './formula-card.js?v=5';
+import './rain.js?v=5';
 const topics=['chemistry','mathematics','physics','computer-science'];
 const validTopic=value=>topics.includes(value);
 const queryTopic=()=>new URL(location.href).searchParams.get('topic');
